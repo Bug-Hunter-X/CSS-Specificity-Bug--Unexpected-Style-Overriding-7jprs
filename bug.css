@@ -1,0 +1,21 @@
+The following CSS code snippet demonstrates an uncommon error related to the specificity of CSS selectors:
+
+```css
+div {
+  color: blue;
+}
+
+.specific-class {
+  color: red;
+}
+
+#specific-id {
+  color: green;
+}
+
+#specific-id.specific-class {
+  color: purple; /* This selector is problematic */
+}
+```
+
+The issue arises when `#specific-id.specific-class` is used to style the element. It has a higher specificity than `#specific-id` or `.specific-class` alone. Therefore, the `color: purple` declaration will override other style declarations, leading to unexpected results. This might be counterintuitive if one expects the order of the CSS rules to matter, but in reality the specificity of the CSS selectors is paramount.
